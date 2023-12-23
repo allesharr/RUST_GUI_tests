@@ -3,10 +3,13 @@ use iced::{
 };
 use iced::Theme;
 
+use crate::counter::counter;
+
 #[derive(Debug, Clone)]
 enum Screen {
     Home,
     OtherWindow,
+    AnotherWindow,
 }
 
 #[derive(Debug, Clone)]
@@ -40,6 +43,7 @@ impl Application for Test_App{
         match self.current_screen {
             Screen::Home => String::from("Home"),
             Screen::OtherWindow => String::from("Other Window"),
+            Screen::AnotherWindow => String::from("Another Widow")
         }
     }
 
@@ -74,6 +78,16 @@ impl Application for Test_App{
                     .push(Text::new("Other Window"))
                     .push(switch_button)
             }
+
+            Screen::AnotherWindow => {
+
+               let switch_button = button("Press me")
+               .on_press(Message::SwitchScreen((Screen::Home)));
+                    Column::new()
+                    .spacing(20)
+                    .push(Text::new("Another Window"))
+                    .push(switch_button)
+            }
         };
 
         Container::new(content)
@@ -87,7 +101,5 @@ impl Application for Test_App{
 
 
 pub fn window1_start() {
-   
     Test_App::run(Settings::default());
-
 }

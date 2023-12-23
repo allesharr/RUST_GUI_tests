@@ -11,6 +11,15 @@ time = { version = "0.3", features = ["local-offset"] }
 # iced.workspace = true
 # iced.features = ["webgl"]
 tokio = {version = "1.35.0", features = ["full"]}
+
+
+
 [dependencies.iced]
 version = "0.10.0"
 features = ["canvas", "tokio", "debug"]
+
+[dependencies.actix]
+version = "0.13.1"
+
+[dependencies.actix-web]
+version = "4"
