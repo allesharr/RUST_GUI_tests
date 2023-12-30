@@ -10,19 +10,19 @@ async fn index(path: web::Path<(u32, String)>) -> impl Responder {
 }
 
 pub fn start(){
-    simple_window::left_bar_window::left_bar_window_start();
-    
-    async move {
-    actix_web::rt::System::with_tokio_rt(|| {
-        tokio::runtime::Builder::new_multi_thread()
-            .enable_all()
-            .worker_threads(8)
-            .thread_name("main-tokio")
-            .build()
-            .unwrap()
-    })
-    .block_on(async_main());
-    };
+    // simple_window::left_bar_window::left_bar_window_start();
+    // async move {
+    // actix_web::rt::System::with_tokio_rt(|| {
+    //     tokio::runtime::Builder::new_multi_thread()
+    //         .enable_all()
+    //         .worker_threads(8)
+    //         .thread_name("main-tokio")
+    //         .build()
+    //         .unwrap()
+    // })
+    // .block_on(async_main());
+    // };
+    simple_window::left_bar::start();
 
 
 }

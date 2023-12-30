@@ -55,9 +55,9 @@ impl Application for LeftBarApp {
     fn view(&self) -> Element<'_, Self::Message, iced::Renderer<Self::Theme>> {
         let about_button:Button<'_, Message> = button("About")
             .on_press(Message::About);
-        let settings_button:Button<'_, Message> = button("About")
+        let settings_button:Button<'_, Message> = button("Settings")
             .on_press(Message::Settings);
-        let save_button:Button<'_, Message> = button("About")
+        let save_button:Button<'_, Message> = button("Save")
             .on_press(Message::Save);
 
             let empty_about_button:Button<'_, Message> = button("About")
@@ -105,7 +105,7 @@ impl Application for LeftBarApp {
         Container::new(content)
             .width(Length::Fill)
             .height(Length::Fill)
-            .center_x()
+            .align_x(iced::alignment::Horizontal::Left)
             .center_y()
             .into()
     }
