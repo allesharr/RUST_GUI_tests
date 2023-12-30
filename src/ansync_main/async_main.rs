@@ -1,3 +1,5 @@
+use std::error::Error;
+
 use actix_web::{get, web, App, HttpServer, Responder};
 use crate::simple_window;
 
@@ -7,7 +9,10 @@ async fn index(path: web::Path<(u32, String)>) -> impl Responder {
     return format!("Hello {}! id:{}", name, id);
 }
 
-pub fn start() {
+pub fn start(){
+    simple_window::left_bar_window::left_bar_window_start();
+    
+    async move {
     actix_web::rt::System::with_tokio_rt(|| {
         tokio::runtime::Builder::new_multi_thread()
             .enable_all()
@@ -17,16 +22,9 @@ pub fn start() {
             .unwrap()
     })
     .block_on(async_main());
+    };
 
-    actix_web::rt::System::with_tokio_rt(|| {
-        tokio::runtime::Builder::new_multi_thread()
-            .enable_all()
-            .worker_threads(8)
-            .thread_name("main-tokio")
-            .build()
-            .unwrap()
-    })
-    .block_on(start_interface());
+
 }
 
 async fn async_main() {
@@ -49,7 +47,8 @@ async fn async_main() {
     .unwrap()
 }
 
-async fn start_interface() {
+fn start_interface() {
+    println!("From app thread");
     simple_window::window1::window1_start();
     
 

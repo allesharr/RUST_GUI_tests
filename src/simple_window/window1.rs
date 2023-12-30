@@ -67,7 +67,6 @@ impl Application for Test_App{
                     .push(Text::new("Home Screen"))
                     .push(switch_button)
 
-                
             }
             Screen::OtherWindow => {
                 let switch_button = button("pen other screen")
