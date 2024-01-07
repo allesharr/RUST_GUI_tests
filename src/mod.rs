@@ -1,3 +1,4 @@
+pub mod egui_mod;
 pub mod simple_window;
 pub mod clock;
 pub mod counter;

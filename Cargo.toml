@@ -13,13 +13,27 @@ time = { version = "0.3", features = ["local-offset"] }
 tokio = {version = "1.35.0", features = ["full"]}
 
 
+iced_aw = { version = "0.7.0", default-features = true, features = ["card", "modal"]}
+
+
 
 [dependencies.iced]
 version = "0.10.0"
 features = ["canvas", "tokio", "debug"]
+
 
 [dependencies.actix]
 version = "0.13.1"
 
 [dependencies.actix-web]
 version = "4"
+
+[dependencies.egui]
+version = "0.24.1"
+
+[dependencies.egui_extras]
+version = "0.24.2"
+features = ["image"]
+
+[dependencies.eframe]
+version = "0.24.1"

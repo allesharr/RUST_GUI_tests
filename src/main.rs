@@ -10,7 +10,9 @@ mod counter;
 mod clock;
 mod ansync_main;
 mod simple_window;
+mod egui_mod;
 
+use egui_mod::hello_world::*;
 
 // #[tokio::main]
 // async fn start_web() {
@@ -18,9 +20,10 @@ mod simple_window;
 // }
 
 
-fn main() -> std::io::Result<()> {
-    async_main::start();
-    Ok(())
+fn main()  {
+    // async_main::start();
+    // Ok(())
+    start();
 }
 
 async fn hello_world() -> impl Responder {
